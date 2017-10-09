@@ -1,0 +1,74 @@
+﻿@model Site.Models.ClienteModel
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Codigo)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Codigo, "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Nome)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Nome, "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.CPF)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.CPF, "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Logradouro)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Logradouro, "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Email)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Email, "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Idade)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Idade, "")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Senha)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Senha, "")
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" style="text-align:right"><input type="submit" value="Cadastrar" /></td>
+        </tr>
+    </table>
+    <br />
+    @Html.ActionLink("Voltar para Index", "Index")
+}

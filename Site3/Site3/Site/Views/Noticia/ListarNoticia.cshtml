@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Site.Models.NoticiasModel>
+@{
+    ViewBag.Title = "ListarNoticia";
+}
+
+<h2>ListarNoticia</h2>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+        <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+        <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.Codigo)</td>
+            <td>@Html.DisplayFor(modelitem => item.Titulo)</td>
+            <td>@Html.DisplayFor(modelitem => item.Descricao)</td>
+        </tr>
+    }
+</table>
+<br />
+@Html.ActionLink("Voltar", "IndexNoticia")
+
