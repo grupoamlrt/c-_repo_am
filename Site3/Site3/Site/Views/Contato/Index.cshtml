@@ -1,0 +1,16 @@
+﻿@model Site.Models.ContatoModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contato</h2>
+<div class="textwidget">
+    <p>
+        Telefone: (11) 9999-9999<br>
+        CredPoint<br>
+        Facebook: Credpoint 
+    </p>
+</div>
+<p>Nos envie uma @Html.ActionLink("mensagem", "Cadastrar").</p>
+
+@Html.ActionLink("Voltar para Contato", "Index")

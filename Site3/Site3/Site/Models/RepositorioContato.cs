@@ -6,75 +6,74 @@ using System.Web;
 
 namespace Site.Models
 {
-    public class RepositorioNoticias
+    public class RepositorioContato
     {
-        private static RepositorioNoticias _repositorio;
+               private static RepositorioContato _repositorio;
 
-        private List<NoticiasModel> noticia;
+               private List<ContatoModel> contato;
 
-        private RepositorioNoticias()
+        private RepositorioContato()
         {
-            noticia = new List<NoticiasModel>();
+            contato = new List<ContatoModel>();
         }
-        public static RepositorioNoticias Instance()
+        public static RepositorioContato Instance()
         {
             if (_repositorio == null)
             {
-                _repositorio = new RepositorioNoticias();
+                _repositorio = new RepositorioContato();
             }
             return _repositorio;
         }
 
-        public void IncluirNoticia(NoticiasModel not)
+        public void CadastrarContato(ContatoModel not)
         {
 
             using (var ctx = new ClassContext())
             {
-                ctx.Noticia.Add(not);
+                ctx.Contato.Add(not);
                 ctx.SaveChanges();
             }
             //noticia.Add(not);
         }
 
-        public IEnumerable<NoticiasModel> ListarNoticias()
+        public IEnumerable<ContatoModel> ListarContatos()
         {
             var ctx = new ClassContext();
 
-            return ctx.Noticia;
+            return ctx.Contato;
             //return noticia;
         }
 
-        public NoticiasModel ListarNoticia(int id)
+        public ContatoModel ListarContatos(int id)
         {
             using (var ctx = new ClassContext())
             {
-                return ctx.Noticia.Where(f => f.IDNoticia == id).First();
+                return ctx.Contato.Where(f => f.IDContato == id).First();
             }
             //return noticia.Where(n => n.IDNoticia == codigo).First();
         }
 
-        public void ExcluirNoticia(int id)
+        public void ExcluirContato(int id)
         {
             using (var ctx = new ClassContext())
             {
-                NoticiasModel noticia = ctx.Noticia.Where(n => n.IDNoticia == id).First();
+                ContatoModel contato = ctx.Contato.Where(n => n.IDContato == id).First();
 
-                ctx.Noticia.Remove(noticia);
+                ctx.Contato.Remove(contato);
                 ctx.SaveChanges();
             }
             //noticia.Remove(ListarNoticia(codigo));
         }
 
-        public void AlterarNoticia(NoticiasModel not)
+        public void AlterarContato(ContatoModel con)
         {
             using (var ctx = new ClassContext())
             {
-                NoticiasModel noticia = ctx.Noticia.Where(n => n.IDNoticia == not.IDNoticia).First();
+                ContatoModel contato = ctx.Contato.Where(n => n.IDContato == con.IDContato).First();
 
-                noticia.Titulo = not.Titulo;
-                noticia.Descricao = not.Descricao;
-                noticia.Imagem = not.Imagem;
-                noticia.DataNoticia = not.DataNoticia;
+                contato.NomeContato = con.NomeContato;
+                contato.EmailContato = con.NomeContato;
+                contato.Mensagem = con.NomeContato;
 
                 ctx.SaveChanges();
             }

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Site.Models.ContatoModel>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.IDContato)</th>
+        <th>@Html.DisplayNameFor(model => model.NomeContato)</th>
+        <th>@Html.DisplayNameFor(model => model.EmailContato)</th>
+        <th>@Html.DisplayNameFor(model => model.Mensagem)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.IDContato)</td>
+            <td>@Html.DisplayFor(model => item.NomeContato)</td>
+            <td>@Html.DisplayFor(model => item.EmailContato)</td>
+            <td>@Html.DisplayFor(model => item.Mensagem)</td>
+        </tr>
+    }
+</table>
+
