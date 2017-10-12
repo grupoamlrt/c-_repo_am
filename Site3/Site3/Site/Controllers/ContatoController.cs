@@ -7,49 +7,48 @@ using Site.Models;
 
 namespace Site.Controllers
 {
-    public class NoticiaController : Controller
+    public class ContatoController : Controller
     {
-        // GET: Noticia
+        // GET: Contato
         public ActionResult Index()
         {
             return View();
         }
-
         public ActionResult Cadastrar()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(NoticiasModel n)
+        public ActionResult Cadastrar(ContatoModel c)
         {
-            RepositorioNoticias.Instance().IncluirNoticia(n);
+            RepositorioContato.Instance().CadastrarContato(c);
 
             return RedirectToAction("Listar");
         }
         public ActionResult Listar()
         {
-            var clientes = RepositorioNoticias.Instance().ListarNoticias();
+            var clientes = RepositorioContato.Instance().ListarContatos();
             return View(clientes);
         }
 
         public ActionResult Excluir(int id)
         {
-            RepositorioNoticias.Instance().ExcluirNoticia(id);
+            RepositorioContato.Instance().ExcluirContato(id);
             return RedirectToAction("Listar");
         }
 
         public ActionResult Editar(int id)
         {
-            var cliente = RepositorioNoticias.Instance().ListarNoticia(id);
+            var cliente = RepositorioContato.Instance().ListarContatos(id);
 
             return View("Cadastrar", cliente);
         }
 
         [HttpPost]
-        public ActionResult Editar(NoticiasModel n)
+        public ActionResult Editar(ContatoModel n)
         {
-            RepositorioNoticias.Instance().AlterarNoticia(n);
+            RepositorioContato.Instance().AlterarContato(n);
 
             return RedirectToAction("Listar");
         }
