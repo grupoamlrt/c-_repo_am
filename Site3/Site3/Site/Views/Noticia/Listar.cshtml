@@ -6,7 +6,7 @@
 <h2>Listar</h2>
 <table class="table">
     <tr>
-        <th>@Html.DisplayNameFor(model => model.IDNoticia)</th>
+        @*<th>@Html.DisplayNameFor(model => model.IDNoticia)</th>*@
         <th>@Html.DisplayNameFor(model => model.Titulo)</th>
         <th>@Html.DisplayNameFor(model => model.Descricao)</th>
         <th>@Html.DisplayNameFor(model => model.DataNoticia)</th>
@@ -15,7 +15,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(modelitem => item.IDNoticia)</td>
+            @*<td>@Html.DisplayFor(modelitem => item.IDNoticia)</td>*@
             <td>@Html.DisplayFor(modelitem => item.Titulo)</td>
             <td>@Html.DisplayFor(modelitem => item.Descricao)</td>
             <td>@Html.DisplayFor(modelitem => item.DataNoticia)</td>

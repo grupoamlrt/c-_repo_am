@@ -1,8 +1,55 @@
-﻿
+﻿@model Site.Models.ContatoModel
 @{
     ViewBag.Title = "Cadastrar";
 }
 
-<h2>Cadastrar</h2>
+<h2>Fale Conosco</h2>
 
+@using (Html.BeginForm())
+{
+    <div class="form-group-contato">
+        @*@Html.HiddenFor(model => model.IDContato)*@
+        <tr>
+            <td colspan="2">@ViewBag.Mensagem </td>
+        </tr>
+        @{
+    if (string.IsNullOrWhiteSpace(ViewBag.Mensagem))
+    {
+        @*<tr>
+            <td>@Html.LabelFor(model => model.IDContato, new { @class = "col-md-2 control-label contato" })</td>
+            <td>
+                @Html.TextBoxFor(model => model.IDContato, new { @class = "form-control" })
+            </td>
+        </tr>*@
+        <tr>
+            <td>@Html.LabelFor(model => model.NomeContato, new { @class = "col-md-2 control-label contato" })</td>
+            <td>
+                @Html.ValidationMessageFor(model => model.NomeContato)
+                @Html.TextBoxFor(model => model.NomeContato, new { @class = "form-control" })
+            </td>
+        </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.EmailContato, new { @class = "col-md-2 control-label contato" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.EmailContato)
+                    @Html.TextBoxFor(model => model.EmailContato, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Mensagem, new { @class = "col-md-2 control-label contato" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Mensagem)
+                    @Html.TextBoxFor(model => model.Mensagem, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right"><input type="submit" value="Enviar Mensagem" /></td>
+            </tr>
+    }
+        }
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 

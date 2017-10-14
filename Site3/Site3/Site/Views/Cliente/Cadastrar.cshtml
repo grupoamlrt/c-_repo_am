@@ -1,74 +1,100 @@
 ﻿@model Site.Models.ClienteModel
 @{
-    ViewBag.Title = "Cadastrar";
+    ViewBag.Title = "Cadastro Cliente";
 }
 
-<h2>Cadastrar</h2>
-
+<h2>Cadastro Cliente</h2>
+</br>
 @using (Html.BeginForm())
 {
-    <table class="table">
+    <div class="form-group-contato">
+        @*@Html.HiddenFor(model => model.IDContato)*@
         <tr>
-            <td>
-                @Html.LabelFor(model => model.Codigo)
-            </td>
-            <td>
-                @Html.TextBoxFor(model => model.Codigo, "")
-            </td>
+            <td colspan="2">@ViewBag.Mensagem </td>
         </tr>
-        <tr>
+        @{
+    if (string.IsNullOrWhiteSpace(ViewBag.Mensagem))
+    {
+        @*<tr>
+            <td>@Html.LabelFor(model => model.IDCliente, new { @class = "col-md-2 control-label cliente" })</td>
             <td>
-                @Html.LabelFor(model => model.Nome)
+                @Html.TextBoxFor(model => model.IDCliente, new { @class = "form-control" })
             </td>
-            <td>
-                @Html.TextBoxFor(model => model.Nome, "")
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.CPF)
-            </td>
-            <td>
-                @Html.TextBoxFor(model => model.CPF, "")
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.Logradouro)
-            </td>
-            <td>
-                @Html.TextBoxFor(model => model.Logradouro, "")
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.Email)
-            </td>
-            <td>
-                @Html.TextBoxFor(model => model.Email, "")
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.Idade)
-            </td>
-            <td>
-                @Html.TextBoxFor(model => model.Idade, "")
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.Senha)
-            </td>
-            <td>
-                @Html.TextBoxFor(model => model.Senha, "")
-            </td>
-        </tr>
-        
-        <tr>
-            <td colspan="2" style="text-align:right"><input type="submit" value="Cadastrar" /></td>
-        </tr>
-    </table>
-    <br />
-    @Html.ActionLink("Voltar para Index", "Index")
+        </tr>*@
+            <tr>
+                <td>@Html.LabelFor(model => model.Nome, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Nome)
+                    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.CPF, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.CPF)
+                    @Html.TextBoxFor(model => model.CPF, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Email, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Email)
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Cidade, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Cidade)
+                    @Html.TextBoxFor(model => model.Cidade, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Estado, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Estado)
+                    @Html.TextBoxFor(model => model.Estado, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Rua, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Rua)
+                    @Html.TextBoxFor(model => model.Rua, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.CEP, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.CEP)
+                    @Html.TextBoxFor(model => model.CEP, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.DataNascimento, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.DataNascimento)
+                    @Html.TextBoxFor(model => model.DataNascimento, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Senha, new { @class = "col-md-2 control-label cliente" })</td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Senha)
+                    @Html.TextBoxFor(model => model.Senha, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right"><input type="submit" value="Cadastrar" /></td>
+            </tr>
+    }
+        }
+    </div>
 }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

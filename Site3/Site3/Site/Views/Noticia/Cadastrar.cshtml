@@ -3,23 +3,24 @@
     ViewBag.Title = "Cadastrar";
 }
 
-<h2>Cadastrar</h2>
+<h2>Cadastrar Notícia</h2>
 @using (Html.BeginForm())
 {
     <table class="table">
-        <tr>
+        @*<tr>
             <td>
                 @Html.LabelFor(model => model.IDNoticia)
             </td>
             <td>
                 @Html.TextBoxFor(model => model.IDNoticia, "")
             </td>
-        </tr>
+        </tr>*@
         <tr>
             <td>
                 @Html.LabelFor(model => model.Titulo)
             </td>
             <td>
+                @Html.ValidationMessageFor(model => model.Titulo)
                 @Html.TextBoxFor(model => model.Titulo, "")
             </td>
         </tr>
@@ -36,6 +37,7 @@
                 @Html.LabelFor(model => model.Descricao)
             </td>
             <td>
+                @Html.ValidationMessageFor(model => model.Descricao)
                 @Html.TextBoxFor(model => model.Descricao, "")
             </td>
         </tr>
@@ -44,6 +46,7 @@
                 @Html.LabelFor(model => model.DataNoticia)
             </td>
             <td>
+                @Html.ValidationMessageFor(model => model.DataNoticia)
                 @Html.TextBoxFor(model => model.DataNoticia, "")
             </td>
         </tr>
@@ -52,5 +55,12 @@
         </tr>
     </table>
 }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
 
 

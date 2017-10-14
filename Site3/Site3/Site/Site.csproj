@@ -219,6 +219,7 @@
     <Compile Include="Models\ClienteModel.cs" />
     <Compile Include="Models\ContatoModel.cs" />
     <Compile Include="Models\Context\ClassContext.cs" />
+    <Compile Include="Models\RepositorioCliente.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NoticiasModel.cs" />
@@ -287,13 +288,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Cliente\Cadastrar.cshtml" />
     <Content Include="Views\Noticia\Index.cshtml" />
     <Content Include="Views\Noticia\Cadastrar.cshtml" />
     <Content Include="Views\Noticia\Listar.cshtml" />
     <Content Include="Views\Contato\Index.cshtml" />
     <Content Include="Views\Contato\Cadastrar.cshtml" />
     <Content Include="Views\Contato\Listar.cshtml" />
+    <Content Include="Views\Cliente\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

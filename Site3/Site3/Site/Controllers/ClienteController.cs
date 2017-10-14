@@ -14,42 +14,41 @@ namespace Site.Controllers
         {
             return View();
         }
-
         public ActionResult Cadastrar()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(ClienteModel c)
+        public ActionResult Cadastrar(NoticiasModel n)
         {
-            Repositorio.Instance().IncluirFuncionario(c);
+            RepositorioNoticias.Instance().IncluirNoticia(n);
 
             return RedirectToAction("Listar");
         }
         public ActionResult Listar()
         {
-            var clientes = Repositorio.Instance().ListarFuncionarios();
+            var clientes = RepositorioNoticias.Instance().ListarNoticias();
             return View(clientes);
         }
 
         public ActionResult Excluir(int id)
         {
-            Repositorio.Instance().ExcluirFuncionario(id);
+            RepositorioNoticias.Instance().ExcluirNoticia(id);
             return RedirectToAction("Listar");
         }
 
         public ActionResult Editar(int id)
         {
-            var cliente = Repositorio.Instance().ListarFuncionario(id);
+            var cliente = RepositorioNoticias.Instance().ListarNoticia(id);
 
             return View("Cadastrar", cliente);
         }
 
         [HttpPost]
-        public ActionResult Editar(ClienteModel c)
+        public ActionResult Editar(NoticiasModel n)
         {
-            Repositorio.Instance().AlterarFuncionario(c);
+            RepositorioNoticias.Instance().AlterarNoticia(n);
 
             return RedirectToAction("Listar");
         }
